@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>WC example</title>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="Wc.js"></script>
+	</head>
+	<body>
+		<script>
+			
+			var wc = new Wc(3, complete, progress);
+			
+			$.get('example.html', wc.trigger(callback));
+			$.get('example.html', wc.trigger(callback));
+			$.get('example.html', wc.trigger(callback));
+			
+			function callback(data) {
+				console.log(data.length);
+			}
+			
+			function progress(completed, overall) {
+				console.log(completed + '/' + overall + ' pages loaded !');
+			}
+			
+			function complete() {
+				console.log('Yeppee ! Complete !');
+			}
+			
+		</script>
+	</body>
+</html>
